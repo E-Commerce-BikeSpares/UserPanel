@@ -74,21 +74,16 @@ const SupportHome = () => {
         className="w-[97%] min-h-[650px] rounded-2xl bg-cover bg-no-repeat relative overflow-hidden"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        {/* Parallax Background */}
         <div className="absolute inset-0 bg-black/80 rounded-2xl"></div>
 
-        {/* Content */}
         <div className="relative w-full min-h-[650px] flex flex-col items-start justify-evenly">
-          {/* Support Description */}
           <div className="min-h-[100px] h-full">
             {Content.map((value) => (
               <SupportDiscription key={value.title} value={value} />
             ))}
           </div>
 
-          {/* Support Image and Cards */}
           <div className="min-h-[500px] w-full flex flex-col xl:flex-row 2xl:flex-row justify-around items-center gap-5">
-            {/* Support Image */}
             <div className="min-w-[50%] h-[80%] px-5 p-4 flex items-center justify-center">
               <img
                 className="w-full h-[500px] rounded-xl object-cover shadow-lg shadow-blue-900/50"
@@ -97,7 +92,6 @@ const SupportHome = () => {
               />
             </div>
 
-            {/* Cards */}
             <div className="min-w-[50%] h-full flex flex-wrap justify-center items-center gap-8 p-4">
               {Data.map((value) => (
                 <CardDesign key={value.id} value={value} />

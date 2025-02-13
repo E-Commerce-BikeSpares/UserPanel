@@ -34,7 +34,6 @@ const NavBarcomp = () => {
 
   return (
     <div className="w-full fixed top-0 z-50 max-h-20 flex flex-col">
-      {/* Navbar */}
       <nav
         className={`max-sm:py-5 max-sm:gap-1 relative bg-white w-full min-h-20 px-7 max-sm:px-2 flex flex-row gap-5 sm:max-md:gap-16 md:max-lg:gap-0 flex-wrap justify-between ${
           searchValue === false
@@ -42,7 +41,6 @@ const NavBarcomp = () => {
             : "sm:max-md:justify-end"
         } items-center shadow-md shadow-gray-800`}
       >
-        {/* Logo */}
         <div
           className={`w-[200px] ${
             searchValue === true ? "max-md:hidden" : "max-md:flex"
@@ -57,7 +55,6 @@ const NavBarcomp = () => {
           </Link>
         </div>
 
-        {/* Search Bar */}
         {searchValue === true ? (
           <div className="w-[600px] h-14 max-lg:w-[450px] max-sm:w-full max-lg:h-14 flex items-center justify-center bg-gradient-to-l rounded from-blue-600 to-blue-500">
             <form className="w-full h-full py-2 px-5 max-sm:px-1 flex">
@@ -93,7 +90,6 @@ const NavBarcomp = () => {
           </div>
         )}
 
-        {/* Icons */}
         <div className="w-[150px] max-lg:w-[30px] h-full flex flex-row justify-end items-center gap-4">
           <Link>
             <ImSearch
@@ -120,11 +116,9 @@ const NavBarcomp = () => {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       {burgerValue === true ? (
         <div className="w-full h-full">
           <div className="w-[250px] h-screen flex flex-col items-center justify-start gap-1 absolute right-0 top-0 bg-gradient-to-b from-blue-600 to-blue-500 shadow-md shadow-gray-800">
-            {/* Close Button */}
             <div className="w-[250px] min-h-20 py-3 text-white bg-white font-medium hover:rounded-none flex items-center justify-start">
               <FaXmark
                 onClick={handleBurgerF}
@@ -132,7 +126,6 @@ const NavBarcomp = () => {
               />
             </div>
 
-            {/* Search Button */}
             <button
               onClick={handleSearchbarT}
               className="w-[250px] h-[50px] px-3 py-2 text-white font-medium text-left hover:bg-yellow-400 hover:text-blue-600 transition-colors duration-300 ease-in-out"
@@ -140,7 +133,6 @@ const NavBarcomp = () => {
               SEARCH
             </button>
 
-            {/* Menu Items */}
             {navMenuList.map((value, index) => (
               <Link key={index} to={value.path}>
                 <div
@@ -155,7 +147,6 @@ const NavBarcomp = () => {
               </Link>
             ))}
 
-            {/* Cart */}
             <Link>
               <div
                 className={`w-[250px] h-[50px] px-3 py-3 text-white ${
@@ -168,7 +159,6 @@ const NavBarcomp = () => {
               </div>
             </Link>
 
-            {/* Likes */}
             <Link to={"/likes"}>
               <div
                 className={`w-[250px] h-[50px] px-3 py-3 text-white ${
@@ -181,7 +171,6 @@ const NavBarcomp = () => {
               </div>
             </Link>
 
-            {/* Logout */}
             <Link to={"/"}>
               <div className="w-[250px] h-[50px] px-3 py-3 text-white font-medium flex items-center justify-start gap-3 hover:bg-yellow-400 hover:text-blue-600 transition-colors duration-300 ease-in-out">
                 <IoMdExit className="text-2xl" />

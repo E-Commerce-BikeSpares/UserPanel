@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 export const ReuseableCard = ({ value }) => {
   const { image, brand, sparename, discription, price, path } = value;
-  const [cartItems, setCartItems] = useState(0); // State to track cart items
-  const [isBouncing, setIsBouncing] = useState(false); // State for bounce animation
+  const [cartItems, setCartItems] = useState(0); 
+  const [isBouncing, setIsBouncing] = useState(false);
 
-  // Function to handle adding items to the cart
+
   const handleAddToCart = () => {
-    setCartItems((prev) => prev + 1); // Increment cart items
-    setIsBouncing(true); // Trigger bounce animation
-    setTimeout(() => setIsBouncing(false), 300); // Reset bounce animation
+    setCartItems((prev) => prev + 1);
+    setIsBouncing(true);
+    setTimeout(() => setIsBouncing(false), 300);
   };
 
   return (

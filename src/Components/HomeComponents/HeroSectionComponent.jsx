@@ -4,7 +4,7 @@ import bike1 from "../../assets/car.jpg";
 import bike2 from "../../assets/car.jpg";
 import bike3 from "../../assets/car.jpg";
 import bike4 from "../../assets/car.jpg";
-import { FaCog, FaTachometerAlt, FaTools, FaBolt } from "react-icons/fa"; // Icons for bike parts
+import { FaCog, FaTachometerAlt, FaTools, FaBolt } from "react-icons/fa"; 
 
 const slides = [
   {
@@ -43,7 +43,7 @@ export default function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 5000); // Adjust the interval for a slower transition
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import WebLogo from "../images/Machzoa Logo 1.png";
+import WebLogo from "../../assets/MachzoaLogo.png";
 import { Link } from "react-router-dom";
 import {
   FaFacebookF,
@@ -134,7 +134,7 @@ const FooterContact = () => {
 
 const FooterComp = () => {
   return (
-    <div className="w-full min-h-[200px] mt-36 flex flex-col justify-center pt-5 items-center bg-gray-200 drop-shadow-md gap-4">
+    <div className="w-full min-h-[200px] mt-36 flex flex-col justify-center pt-5 items-center bg-gradient-to-b from-gray-50 via-gray-100 to bg-gray-200 drop-shadow-md gap-4">
       <div className="flex flex-row flex-wrap w-full justify-center h-full gap-9">
         <div className="w-[340px] text-justify h-full">
           <FooterAbout />
@@ -147,7 +147,7 @@ const FooterComp = () => {
         </div>
       </div>
 
-      <div className="w-full min-h-[80px] max-sm:py-4 px-20 bg-gradient-to-b from-[#0E4257] to-[#058CA6] flex flex-row flex-wrap gap-5 justify-between text-gray-300 items-center">
+      <div className="w-full min-h-[80px] max-sm:py-4 px-20 bg-gradient-to-b from-blue-950 via-blue-900 to-blue-800 flex flex-row flex-wrap gap-5 justify-between text-gray-300 items-center">
         <div className="w-[400px] flex flex-col items-center justify-start gap-[8px]">
           <p
             className="flex gap-2 font-[500] cursor-pointer"
@@ -179,14 +179,14 @@ const FooterComp = () => {
           >
             STAY IN TOUCH
           </p>
-          <div className="flex flex-row flex-wrap justify-center text-xl items-center text-black gap-6">
-            <FaXTwitter className="text-black cursor-pointer text-2xl" />
-            <RiInstagramFill className="text-pink-700 cursor-pointer text-2xl" />
+          <div className="flex flex-row flex-wrap justify-center text-xl items-center text-gray-600  gap-6">
+            <FaXTwitter className="text-gray-950 hover:text-gray-200 cursor-pointer text-2xl" />
+            <RiInstagramFill className="text-gray-950 hover:text-gray-200 cursor-pointer text-2xl" />
             <FaFacebookF
-              className="text-blue-800 cursor-pointer text-2xl"
+              className="text-gray-950 hover:text-gray-200 cursor-pointer text-2xl"
               style={{ textShadow: "px px 5px #FFFFFF" }}
             />
-            <FaYoutube className="text-red-800 cursor-pointer text-2xl" />
+            <FaYoutube className="text-gray-950 hover:text-gray-200 cursor-pointer text-2xl" />
           </div>
         </div>
       </div>

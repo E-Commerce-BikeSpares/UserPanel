@@ -1,45 +1,52 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { BlackVarient, DarkVarient, LightVarient, WhiteVarient } from "../ColorComponent/ColorComponent";
+import fullFaceHelmet from "../../assets/car.jpg";
+import halfFaceHelmet from "../../assets/car.jpg";
+import goggles from "../../assets/car.jpg";
+import helmetAccessories from "../../assets/car.jpg";
+import communication from "../../assets/car.jpg";
+import action from "../../assets/car.jpg";
 
 const HelmetsAndAccessories = () => {
-    // const img='https://wallpapercave.com/wp/wp7610068.jpg';
-  
-    const data = [
-      { name: "FULL FACE HELMET", path: "/helmet" },
-      { name: "HALF FACE HELMET", path: "/helmet" },
-      { name: "GOGGLES", path: "/helmet" },
-      { name: "HELMET ACCESSORIES", path: "/helmet" },
-      { name: "COMMUCATION", path: "/helmet" },
-      { name: "ACTION", path: "/helmet" },
-    ];
-  
-    return (
-      <div className="w-full h-full flex flex-col items-start justify-center gap-6 mt-20">
-        <h2 className="text-2xl px-3">Helmet And Accessories</h2>
-        <div className="px-3 w-full h-full flex-wrap flex items-center gap-3 justify-evenly">
-          {data.map((values, index) => (
-            <Fragment key={index}>
-              <div className="relative min-h-[400px] rounded-xl min-w-[160px] bg-[url('https://wallpapercave.com/wp/wp7610068.jpg')] bg-cover bg-no-repeat flex items-end grow hover:grow-[100] hover:duration-1000  hover:ease-in-out ">
-                <div className="w-full bottom-0 h-full absolute opacity-0 hover:opacity-100 hover:duration-1000  hover:ease-in-out">
-                  <div className={`w-full h-[20%] rounded-lg  bg-gradient-to-r to-[${LightVarient()}] from-[${DarkVarient()}] absolute bottom-0 flex items-center justify-evenly`}>
-                    <div className={` w-[50%] h-full py-2 rounded flex items-center justify-start text-lg font-medium text-${WhiteVarient()}`}>
-                      {values.name}
-                    </div>
-                    <Link to={values.path}>
-                      <div className={`w-[100px] flex items-center justify-center hover:scale-110 hover:duration-300 hover:ease-in-out bg-${WhiteVarient()} text-[${DarkVarient()}] py-2 rounded-lg hover:shadow-md hover:shadow-${BlackVarient()}`}>
-                        Shop Now
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </Fragment>
-          ))}
-        </div>
-      </div>
-    );
-  };
-  
+  const data = [
+    { name: "FULL FACE HELMET", path: "/helmet", image: fullFaceHelmet },
+    { name: "HALF FACE HELMET", path: "/helmet", image: halfFaceHelmet },
+    { name: "GOGGLES", path: "/helmet", image: goggles },
+    { name: "HELMET ACCESSORIES", path: "/helmet", image: helmetAccessories },
+    { name: "COMMUNICATION", path: "/helmet", image: communication },
+    { name: "ACTION", path: "/helmet", image: action },
+  ];
 
-export default HelmetsAndAccessories;  
+  return (
+    <div className="w-full h-full flex flex-col items-start justify-center gap-6 p-8">
+      <h2 className="text-3xl font-bold text-gray-600">Helmet And Accessories</h2>
+
+      <div className="w-full h-full flex flex-wrap items-center gap-4 justify-evenly">
+        {data.map((values, index) => (
+          <Fragment key={index}>
+            <div
+              className="relative min-h-[400px] rounded-xl min-w-[160px] bg-cover bg-no-repeat flex items-end grow hover:grow-[100] transition-all duration-500 ease-in-out overflow-hidden group"
+              style={{ backgroundImage: `url(${values.image})` }}
+            >
+              <div className="w-full h-full absolute bg-gradient-to-t from-blue-600/95 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"></div>
+
+              <div className="w-full h-[20%] rounded-lg bg-gradient-to-r from-blue-900 via-blue-900 to-blue-800 absolute bottom-0 flex items-center justify-evenly opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
+                <div className="w-[50%] h-full py-2 flex items-center justify-start text-lg font-medium text-white">
+                  {values.name}
+                </div>
+
+                <Link to={values.path}>
+                  <div className="w-[100px] flex items-center justify-center bg-white text-blue-600 py-2 rounded-lg hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-500 hover:text-white hover:scale-105 transition-all duration-300 ease-in-out">
+                    Shop Now
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </Fragment>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default HelmetsAndAccessories;

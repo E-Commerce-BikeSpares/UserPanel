@@ -1,7 +1,7 @@
 // 404Page.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ErrorImage from "../images/Error - 404-2.jpg"
+import ErrorImage from "../../assets/Error - 404-2.jpg"
 
 const NotFoundPage = () => {
   const navigate = useNavigate();

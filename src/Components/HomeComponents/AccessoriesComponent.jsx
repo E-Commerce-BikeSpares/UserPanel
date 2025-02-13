@@ -1,10 +1,4 @@
 import React, { Fragment } from "react";
-import {
-  BlackVarient,
-  DarkVarient,
-  LightVarient,
-  WhiteVarient,
-} from "../ColorComponent/ColorComponent";
 import { Link } from "react-router-dom";
 
 const AccessoriesSection = () => {
@@ -23,32 +17,32 @@ const AccessoriesSection = () => {
   ];
 
   return (
-    <div className="w-full h-full 2xl:h-[500px] xl:h-[500px] lg:h-[800px] md:h-[1150px] sm:h-[1150px] py-10 flex flex-col items-center flex-wrap justify-center">
-      <h1 className="w-full h-fit px-4 py-5 text-left text-2xl font-medium">
+    <div className="w-full h-full 2xl:h-[500px] p-8 xl:h-[500px] lg:h-[800px] md:h-[1150px] sm:h-[1150px] flex flex-col items-center flex-wrap justify-center">
+      <h1 className="w-full h-fit py-5 text-left text-3xl font-bold text-blue-600">
         Accessories
       </h1>
-      <div className="w-full h-fit flex flex-row items-center flex-wrap justify-evenly gap-10">
+      <div className="w-full h-fit flex flex-row items-center flex-wrap justify-evenly gap-12">
         {data.map((value, index) => (
           <Fragment key={index}>
             <Link to={"/accessories"}>
-            <div className="max-sm:w-[300px] hover:scale-105 hover:delay-150 hover:ease-out hover:duration-150 relative w-[450px] min-h-[300px] flex flex-col justify-center items-center">
+              <div className="max-sm:w-[300px] hover:scale-105 transition-transform duration-300 ease-in-out relative w-[450px] min-h-[300px] flex flex-col justify-center items-center group">
                 <img
                   src={value.image}
-                  alt="Exhaust"
-                  className={`min-h-[300px] max-sm:w-[300px] max-sm:h-[200px] bg-${BlackVarient()} w-full rounded-lg absolute top-0 sm:max-2xl:right-0 sm:max-2xl:left-0 bottom-0`}
+                  alt={value.name}
+                  className="min-h-[300px] max-sm:w-[300px] max-sm:h-[200px] bg-gray-800 w-full rounded-lg absolute top-0 sm:max-2xl:right-0 sm:max-2xl:left-0 bottom-0 object-cover"
                 />
-                <div
-                  className={`min-w-[80px] top-4 left-4 py-4 flex flex-col items-center justify-evenly absolute bg-gradient-to-r from-[${DarkVarient()}] to-[${LightVarient()}] outline-none rounded-xl text-${WhiteVarient()}`}
-                >
+
+                <div className="min-w-[80px] top-4 left-4 py-4 flex flex-col items-center justify-evenly absolute bg-gradient-to-r from-blue-600 to-blue-500 outline-none rounded-xl text-white hover:scale-110 transition-transform duration-300 ease-in-out">
                   <p>Upto</p>
                   <p>10%</p>
                   <p>Offer</p>
                 </div>
-                <h3 className={`absolute max-sm:w-[300px] bottom-0 text-${WhiteVarient()} text-center text-xl font-semibold py-5 w-full min-h-[20%]`}>
-                {value.name}
-              </h3>
+
+                <h3 className="absolute max-sm:w-[300px] bottom-0 text-white text-center text-xl font-semibold py-5 w-full min-h-[20%] bg-gradient-to-t from-black/70 to-transparent rounded-b-lg">
+                  {value.name}
+                </h3>
               </div>
-              </Link>
+            </Link>
           </Fragment>
         ))}
       </div>

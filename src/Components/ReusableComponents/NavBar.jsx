@@ -1,7 +1,6 @@
-// import { CardMedia } from "@mui/material";
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import HeaderLogo from "../images/Header Logo.png";
+import HeaderLogo from "../../assets/NavLogo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaCircleUser, FaRegHeart, FaXmark } from "react-icons/fa6";
 import { ImSearch } from "react-icons/im";
@@ -10,11 +9,9 @@ import { IoMdExit } from "react-icons/io";
 
 const NavBarcomp = () => {
   const [burgerValue, setBurgerValue] = useState(false);
-
   const [searchValue, setSearchValue] = useState(false);
 
   const handleBurgerF = () => setBurgerValue(false);
-
   const handleBurgerT = () => setBurgerValue(true);
 
   const handleSearchbarT = () => {
@@ -27,7 +24,7 @@ const NavBarcomp = () => {
     { page: "HOME", path: "/" },
     { page: "SPARES BY BIKE", path: "/spares" },
     { page: "LUGGAGE", path: "/luggage" },
-    { page: "ACCESORIES", path: "/accesories" },
+    { page: "ACCESSORIES", path: "/accessories" },
     { page: "BIKE SERVICE", path: "/bikeservice" },
     { page: "OFFERS", path: "/offers" },
     { page: "ABOUT", path: "/about" },
@@ -36,14 +33,16 @@ const NavBarcomp = () => {
   const location = useLocation();
 
   return (
-    <div className="w-full fixed top-0 z-20 max-h-20  flex flex-col ">
+    <div className="w-full fixed top-0 z-50 max-h-20 flex flex-col">
+      {/* Navbar */}
       <nav
-        className={`max-sm:py-5 max-sm:gap-1 relative bg-white w-full min-h-20 px-7 max-sm:px-2 flex flex-row gap-5 sm:max-md:gap-16 md:max-lg:gap-0 flex-wrap justify-between    ${
+        className={`max-sm:py-5 max-sm:gap-1 relative bg-white w-full min-h-20 px-7 max-sm:px-2 flex flex-row gap-5 sm:max-md:gap-16 md:max-lg:gap-0 flex-wrap justify-between ${
           searchValue === false
             ? "max-md:justify-between"
-            : " sm:max-md:justify-end"
+            : "sm:max-md:justify-end"
         } items-center shadow-md shadow-gray-800`}
       >
+        {/* Logo */}
         <div
           className={`w-[200px] ${
             searchValue === true ? "max-md:hidden" : "max-md:flex"
@@ -53,38 +52,39 @@ const NavBarcomp = () => {
             <img
               src={HeaderLogo}
               alt="logo"
-              className="w-[200px] h-fit max-sm:w-[130px]  cursor-pointer"
+              className="w-[200px] h-fit max-sm:w-[130px] cursor-pointer"
             />
           </Link>
         </div>
 
+        {/* Search Bar */}
         {searchValue === true ? (
-          <div className="w-[600px] h-14 max-lg:w-[450px] max-sm:w-full max-lg:h-14 flex items-center justify-center bg-gradient-to-l rounded from-[#058CA6]  to-[#0E4257] ">
+          <div className="w-[600px] h-14 max-lg:w-[450px] max-sm:w-full max-lg:h-14 flex items-center justify-center bg-gradient-to-l rounded from-blue-600 to-blue-500">
             <form className="w-full h-full py-2 px-5 max-sm:px-1 flex">
               <input
                 className="h-full bg-white rounded-l-xl outline-none px-2 text-xl max-sm:max-w-[70%] min-w-[90%]"
                 type="search"
+                placeholder="Search..."
               />
-              <button className="w-[8%] max-sm:w-[15%] px-1 flex items-center bg-white rounded-r-lg  justify-center">
-                <ImSearch className=" text-2xl font-bold text-black" />
+              <button className="w-[8%] max-sm:w-[15%] px-1 flex items-center bg-white rounded-r-lg justify-center">
+                <ImSearch className="text-2xl font-bold text-blue-600" />
               </button>
             </form>
             <FaXmark
               onClick={handleSearchbarF}
-              className="text-3xl mr-5 max-sm:mr-2  text-left text-white hover:scale-110 hover:duration-100 hover:ease-linear"
+              className="text-3xl mr-5 max-sm:mr-2 text-white hover:scale-110 hover:duration-100 hover:ease-linear"
             />
           </div>
         ) : (
-          <div className="w-[900px] hidden  font-medium h-full 2xl:flex xl:flex flex-row flex-wrap justify-center items-center gap-5">
+          <div className="w-[900px] hidden font-medium h-full 2xl:flex xl:flex flex-row flex-wrap justify-center items-center gap-5">
             {navMenuList.map((value, index) => (
               <Link key={index} to={value.path}>
                 <span
                   className={`px-2 py-1.5 ${
                     value.path === location.pathname
-                      ? "rounded-md bg-gradient-to-r from-[#058CA6] to-[#0E4257] text-white border-b-[3px] border-b-[#0E4257]"
-                      : " text-[#0E4257]"
-                  }
-              text-black font-medium hover:rounded-none hover:border-solid hover:border-b-[3px] hover:border-b-[#0E4257] `}
+                      ? "border-b-2 border-b-blue-950 text-yellow-500     "
+                      : "text-black hover:text-yellow-500"
+                  } text-lg font-medium transition-colors duration-300 ease-in-out`}
                 >
                   {value.page}
                 </span>
@@ -93,99 +93,98 @@ const NavBarcomp = () => {
           </div>
         )}
 
-        <div className="w-[150px] max-lg:w-[30px]  h-full flex flex-row justify-end items-center gap-4">
+        {/* Icons */}
+        <div className="w-[150px] max-lg:w-[30px] h-full flex flex-row justify-end items-center gap-4">
           <Link>
             <ImSearch
               onClick={handleSearchbarT}
-              className="max-xl:hidden text-2xl font-bold text-blue-950"
+              className="max-xl:hidden text-2xl font-bold text-black hover:text-yellow-400"
             />
           </Link>
           <Link>
-            <FaRegHeart className="max-xl:hidden text-2xl text-blue-950" />
+            <FaRegHeart className="max-xl:hidden text-2xl text-black hover:text-yellow-400" />
           </Link>
           <Link>
-            <GrCart className="max-xl:hidden text-2xl text-blue-950" />
+            <GrCart className="max-xl:hidden text-2xl text-black hover:text-yellow-400" />
           </Link>
           <Link>
-            <FaCircleUser className="max-xl:hidden text-2xl text-blue-950" />
+            <FaCircleUser className="max-xl:hidden text-2xl text-black hover:text-yellow-400" />
           </Link>
           <button onClick={handleBurgerT}>
             <GiHamburgerMenu
               className={`xl:hidden ${
                 searchValue === true ? "max-sm:hidden" : "max-sm:flex"
-              } font-bold text-2xl text-blue-950`}
+              } font-bold text-2xl text-black hover:text-yellow-400`}
             />
           </button>
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       {burgerValue === true ? (
-        <div className="w-full h-full ">
-          <div className="w-[250px] h-screen flex flex-col items-center justify-start gap-1 absolute right-0 top-0 bg-[#0E4257] shadow-md shadow-gray-800">
-            <div
-              className={`w-[250px] min-h-20  py-3 text-white bg-white
-                font-medium hover:rounded-none flex items-center justify-start `}
-            >
+        <div className="w-full h-full">
+          <div className="w-[250px] h-screen flex flex-col items-center justify-start gap-1 absolute right-0 top-0 bg-gradient-to-b from-blue-600 to-blue-500 shadow-md shadow-gray-800">
+            {/* Close Button */}
+            <div className="w-[250px] min-h-20 py-3 text-white bg-white font-medium hover:rounded-none flex items-center justify-start">
               <FaXmark
                 onClick={handleBurgerF}
-                className="text-3xl ml-3 text-black hover:scale-110 hover:duration-100 hover:ease-linear"
+                className="text-3xl ml-3 text-blue-600 hover:scale-110 hover:duration-100 hover:ease-linear"
               />
             </div>
 
+            {/* Search Button */}
             <button
               onClick={handleSearchbarT}
-              className={`w-[250px] h-[50px] px-3 py-2 text-white 
-              font-medium text-left hover:duration-100 hover:ease-in-out hover:border-solid hover:border-b-[3px] hover:border-b-white `}
+              className="w-[250px] h-[50px] px-3 py-2 text-white font-medium text-left hover:bg-yellow-400 hover:text-blue-600 transition-colors duration-300 ease-in-out"
             >
               SEARCH
             </button>
 
+            {/* Menu Items */}
             {navMenuList.map((value, index) => (
               <Link key={index} to={value.path}>
                 <div
                   className={`w-[250px] h-[50px] px-3 py-3 text-white ${
                     value.path === location.pathname
-                      ? " bg-gradient-to-r from-[#058CA6]  to-[#0E4257] border-b-[3px] border-b-[#0E4257]"
-                      : " text-[#0E4257]"
-                  }
-               font-medium hover:duration-100 hover:ease-in-out hover:rounded-none hover:border-solid hover:border-b-[3px] hover:border-b-white `}
+                      ? "bg-yellow-400 text-blue-600"
+                      : "hover:bg-yellow-400 hover:text-blue-600"
+                  } font-medium transition-colors duration-300 ease-in-out`}
                 >
                   {value.page}
                 </div>
               </Link>
             ))}
+
+            {/* Cart */}
             <Link>
               <div
                 className={`w-[250px] h-[50px] px-3 py-3 text-white ${
                   "/cart" === location.pathname
-                    ? " bg-gradient-to-r from-[#058CA6]  to-[#0E4257] border-b-[3px] border-b-[#0E4257]"
-                    : " text-[#0E4257]"
-                }
-             font-medium hover:duration-100 hover:ease-in-out hover:rounded-none hover:border-solid hover:border-b-[3px] hover:border-b-white `}
+                    ? "bg-yellow-400 text-blue-600"
+                    : "hover:bg-yellow-400 hover:text-blue-600"
+                } font-medium transition-colors duration-300 ease-in-out`}
               >
                 CART
               </div>
             </Link>
 
+            {/* Likes */}
             <Link to={"/likes"}>
               <div
                 className={`w-[250px] h-[50px] px-3 py-3 text-white ${
                   "/likes" === location.pathname
-                    ? " bg-gradient-to-r from-[#058CA6]  to-[#0E4257] border-b-[3px] border-b-[#0E4257]"
-                    : " text-[#0E4257]"
-                }
-              text-black font-medium hover:rounded-none hover:duration-100 hover:ease-in-out hover:border-solid hover:border-b-[3px] hover:border-b-white `}
+                    ? "bg-yellow-400 text-blue-600"
+                    : "hover:bg-yellow-400 hover:text-blue-600"
+                } font-medium transition-colors duration-300 ease-in-out`}
               >
                 LIKES
               </div>
             </Link>
 
+            {/* Logout */}
             <Link to={"/"}>
-              <div
-                className={`w-[250px] h-[50px] px-3 py-3 text-white 
-                font-medium flex items-center justify-start gap-3 hover:duration-75 hover:ease-in-out hover:border-solid hover:border-b-[3px] hover:border-b-white `}
-              >
-                <IoMdExit className="text-2xl text-white" />
+              <div className="w-[250px] h-[50px] px-3 py-3 text-white font-medium flex items-center justify-start gap-3 hover:bg-yellow-400 hover:text-blue-600 transition-colors duration-300 ease-in-out">
+                <IoMdExit className="text-2xl" />
                 LOGOUT
               </div>
             </Link>
@@ -198,4 +197,4 @@ const NavBarcomp = () => {
   );
 };
 
-export default NavBarcomp;
+export default NavBarcomp;  

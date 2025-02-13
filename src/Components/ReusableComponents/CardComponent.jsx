@@ -1,130 +1,84 @@
-import React from "react";
-import { FaCartPlus, FaRegHeart } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaShoppingBag, FaRegHeart } from "react-icons/fa";
 import { IoStarHalfOutline, IoStarSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { BlackVarient, DarkVarient, LightVarient, WhiteVarient } from "../ColorComponent/ColorComponent";
-// import { DarkVarient ,LightVarient, WhiteVarient,BlackVarient} from "../ColorComponent/ColorComponent";
 
-export const CardMaping = ({ value }) => {
-  const { image, brand, sparename, discription, price, path } =
-    value;
+export const ReuseableCard = ({ value }) => {
+  const { image, brand, sparename, discription, price, path } = value;
+  const [cartItems, setCartItems] = useState(0); // State to track cart items
+  const [isBouncing, setIsBouncing] = useState(false); // State for bounce animation
+
+  // Function to handle adding items to the cart
+  const handleAddToCart = () => {
+    setCartItems((prev) => prev + 1); // Increment cart items
+    setIsBouncing(true); // Trigger bounce animation
+    setTimeout(() => setIsBouncing(false), 300); // Reset bounce animation
+  };
+
   return (
-    <>
-      <div class={`w-[330px] max-h-[500px] mt-20 flex flex-col overflow-hidden rounded-xl shadow-lg shadow-black text-[${DarkVarient()}] `}>
-       
-        <div class={`w-full h-[380px] relative overflow-hidden text-${DarkVarient()} bg-transparent rounded-xl `}>
-          <img
-            src={image}
-            alt="ui/ux review check"
-            className="w-full h-[60%] px-4 py-4 rounded-xl"
-          />
-          <div className={`flex justify-center items-center h-8 w-9 absolute top-5 right-5  bg-${WhiteVarient()} rounded-[10px] hover:scale-125  hover:text-[${DarkVarient()}]`}>
-            <FaRegHeart className={`text-lg text-${DarkVarient()}`} />
-          </div>
-
-          <div class="w-full h-[30%] px-3 flex flex-col items-start justify-center gap-0">
-            <div className="w-full h-[50%] flex flex-col items-start justify-center ">
-              <p class={`text-sm text-[${DarkVarient()}]`}>{brand}</p>
-              <h4 class="text-xl font-semibold">
-                {sparename}
-              </h4>
-            </div >
-            <p class={`w-full h-[50%] font-normal text-sm text-justify text-${BlackVarient()} `}>{discription}</p>
-          </div>
-
-            <div className="w-full h-[10%] flex items-start justify-start px-3 gap-1">
-              <IoStarSharp className="text-xl" />
-              <IoStarSharp className="text-xl"/>
-              <IoStarSharp className="text-xl"/>
-              <IoStarSharp className="text-xl" />
-              <IoStarHalfOutline className="text-xl" />
-
-            </div>
-        </div>
+    <div className="w-[330px] max-h-[500px] flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out bg-white">
+  
+      <div className="w-full h-[250px] relative overflow-hidden group">
+        <img
+          src={image}
+          alt="ui/ux review check"
+          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300 ease-in-out"
+        />
 
         <div
-          class={`relative w-[330px] h-[80px] px-7 flex items-center justify-between  bg-gradient-to-r from-[${DarkVarient()}] to-[${LightVarient()}]
-             `}
+          className={`absolute top-4 left-4 p-2 bg-white rounded-full shadow-md hover:bg-blue-600 hover:text-white transition-colors duration-300 ease-in-out cursor-pointer group ${
+            isBouncing ? "animate-bounce" : ""
+          }`}
+          onClick={handleAddToCart}
         >
-             <div className={`w-[40%] h-full text-${WhiteVarient()} flex justify-center items-center gap-1`}>
-             <span className=" font-bold text-lg">RS :</span>
-             <span className="text-xl">{price}</span>
-             </div>
-             
-          <div class={` absolute -top-5 left-36 flex items-center h-10 w-10 bg-${WhiteVarient()} border-4 border-[${LightVarient()}]  rounded-full hover:scale-125 hover:border-[#0E4257]  `}>
-            <FaCartPlus class="text-xl  ml-1" />
+          <FaShoppingBag className="text-xl text-gray-600 hover:text-white transform group-hover:scale-110 transition-transform duration-300 ease-in-out" />
+          {cartItems > 0 && (
+            <div className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              {cartItems}
+            </div>
+          )}
+        </div>
+
+        <div className="absolute top-4 right-4 p-2 text-gray-600 bg-white rounded-full shadow-md hover:bg-blue-600 hover:text-white transition-colors duration-300 ease-in-out cursor-pointer">
+          <FaRegHeart className="text-lg" />
+        </div>
+      </div>
+
+      <div className="p-4 flex flex-col gap-2">
+        <div className="flex items-center justify-between">
+          <p className="text-sm text-blue-600 font-medium">{brand}</p>
+          <div className="flex items-center gap-1">
+            {[...Array(4)].map((_, i) => (
+              <IoStarSharp key={i} className="text-xl text-yellow-400" />
+            ))}
+            <IoStarHalfOutline className="text-xl text-yellow-400" />
+          </div>
+        </div>
+
+        <h4 className="text-xl font-semibold text-gray-800">{sparename}</h4>
+
+        <p className="text-sm text-gray-600">{discription}</p>
+      </div>
+
+      <div className="mt-auto p-4 bg-gradient-to-r from-blue-900 via-blue-900 to-blue-800 rounded-b-xl">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-white font-bold text-lg">₹</span>
+            <span className="text-white text-xl">{price}</span>
           </div>
 
-          <div className="w-[40%] h-full flex items-center justify-center">
+          <div className="w-[40%] flex items-center justify-end">
             <Link to={path}>
-              <button className={`px-2 py-1.5 hover:scale-110 border bg-${WhiteVarient()} rounded-lg text-[${DarkVarient()}] font-semibold text-sm  `}>
-                BUY NOW
+              <button className="px-4 py-2 bg-white text-blue-600 font-semibold rounded-lg hover:bg-transparent hover:text-white transition-all duration-300 ease-in-out relative overflow-hidden group">
+                <span className="relative z-10">BUY NOW</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out -translate-x-full group-hover:translate-x-0"></div>
               </button>
             </Link>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-const ReusableCard = () => {
-  const data = [
-    {
-      image:
-        "https://imgd.aeplcdn.com/476x268/n/cw/ec/103795/yzf-r15-front-suspension-preload-adjuster.jpeg",
-      brand: "HERO",
-      sparename: "DOME",
-      discription:
-        "Hero Honda Cbz Xtreme Bike Spare Parts - Safexbikes Motorcycle Superstore",
-      rating: 3,
-      price: 3000,
-      path: "/prod-1",
-    },
-    {
-      image:
-        "https://www.carparts.com/blog/wp-content/uploads/2020/03/timing-chain-system-1024x683.jpeg",
-      brand: "HONDA",
-      sparename: "ENGNEE",
-      discription:
-        "The GX160’s 1/2 reduction mechanism is specifically developed for long-tail",
-      rating: 4,
-      price: 8000,
-      path: "/prod-2",
-    },
-    {
-      image:
-        "https://imgd.aeplcdn.com/476x268/n/cw/ec/103795/yzf-r15-rear-disc-brake.jpeg",
-      brand: "YAMAHA",
-      sparename: "BRAKE SPARE",
-      discription:
-        "Conversely, a lower final drive ratio will lead to slower initial acceleration.....",
-      rating: 2,
-      price: 2000,
-      path: "/prod-3",
-    },
-    {
-      image:
-        "https://i.pinimg.com/originals/77/6e/38/776e389b1783f0af7cb1dd3f6dff1c78.jpg",
-      brand: "DUKE",
-      sparename: "CHAINSPRAKET",
-      discription:
-        "Hero Honda Cbz Xtreme Bike Spare Parts - Safexbikes Motorcycle Superstore",
-      rating: 3,
-      price: 5000,
-      path: "/prod-4",
-    },
-  ];
-
-  return (
-    <>
-      <div className="w-full h-full flex justify-center items-center flex-wrap gap-11">
-        {data.map((value, index) => (
-          <CardMaping key={index} value={value} />
-        ))}
-      </div>
-    </>
-  );
-};
-
-export default ReusableCard;
+export default ReuseableCard;

@@ -18,9 +18,9 @@ const data=[
 
 
 return(
-<div className="w-full h-full mt-20 flex flex-col justify-center items-start gap-1">
-<h2 className="text-2xl font-medium px-12">Search By Brand</h2>
-<div className="w-full h-full flex-wrap flex justify-evenly items-center ">
+<div className="w-full h-full mt-14 p-8 flex flex-col justify-center items-start gap-1">
+<h2 className="text-3xl font-semibold text-gray-600 ">Search By Brand</h2>
+<div className="w-full grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-8">
 {
 data.map((value,index)=>(
 <Fragment key={index}>   

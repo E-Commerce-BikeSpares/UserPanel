@@ -25,7 +25,7 @@ const AccessoriesSection = () => {
         {data.map((value, index) => (
           <Fragment key={index}>
             <Link to={"/accessories"}>
-              <div className="max-sm:w-[360px] hover:scale-105 transition-transform duration-300 ease-in-out relative w-[450px] min-h-[300px] flex flex-col justify-center items-center group">
+              <div className="max-sm:w-[310px] hover:scale-105 transition-transform duration-300 ease-in-out relative w-[450px] min-h-[300px] flex flex-col justify-center items-center group">
                 <img
                   src={value.image}
                   alt={value.name}

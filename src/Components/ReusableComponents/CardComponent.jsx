@@ -16,7 +16,7 @@ export const ReuseableCard = ({ value }) => {
   };
 
   return (
-    <div className="w-[330px] max-h-[500px] flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out bg-white">
+    <div className="max-h-[500px] flex flex-col overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out bg-white">
   
       <div className="w-full h-[250px] relative overflow-hidden group">
         <img

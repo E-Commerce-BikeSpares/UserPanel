@@ -5,7 +5,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaCircleUser, FaRegHeart, FaXmark } from "react-icons/fa6";
 import { ImSearch } from "react-icons/im";
 import { GrCart } from "react-icons/gr";
-import { IoMdExit } from "react-icons/io";
 
 const NavBarcomp = () => {
   const [burgerValue, setBurgerValue] = useState(false);
@@ -79,7 +78,7 @@ const NavBarcomp = () => {
                 <span
                   className={`px-2 py-1.5 ${
                     value.path === location.pathname
-                      ? "border-b-2 border-b-blue-950 text-yellow-500     "
+                      ? "border-b-2 border-b-blue-950 text-yellow-500"
                       : "text-black hover:text-yellow-500"
                   } text-lg font-medium transition-colors duration-300 ease-in-out`}
                 >
@@ -118,27 +117,34 @@ const NavBarcomp = () => {
 
       {burgerValue === true ? (
         <div className="w-full h-full">
-          <div className="w-[250px] h-screen flex flex-col items-center justify-start gap-1 absolute right-0 top-0 bg-gradient-to-b from-blue-600 to-blue-500 shadow-md shadow-gray-800">
-            <div className="w-[250px] min-h-20 py-3 text-white bg-white font-medium hover:rounded-none flex items-center justify-start">
+          <div className="w-full h-screen flex flex-col items-start justify-start gap-1 absolute right-0 top-0 bg-gradient-to-b from-gray-50 to-gray-100 shadow-md shadow-gray-800">
+            <div className="w-full min-h-20 py-3 text-black bg-gradient-to-b from-gray-50 to-gray-100 font-medium hover:rounded-none flex items-center justify-between px-5">
+              <Link to={"/"}>
+                <img
+                  src={HeaderLogo}
+                  alt="logo"
+                  className="w-[130px] h-fit cursor-pointer"
+                />
+              </Link>
               <FaXmark
                 onClick={handleBurgerF}
-                className="text-3xl ml-3 text-blue-600 hover:scale-110 hover:duration-100 hover:ease-linear"
+                className="text-3xl text-blue-600 hover:scale-110 hover:duration-100 hover:ease-linear"
               />
             </div>
 
             <button
               onClick={handleSearchbarT}
-              className="w-[250px] h-[50px] px-3 py-2 text-white font-medium text-left hover:bg-yellow-400 hover:text-blue-600 transition-colors duration-300 ease-in-out"
+              className="w-full h-[50px] px-5 py-2 text-black font-medium text-left hover:bg-yellow-400 hover:text-blue-600 transition-colors duration-300 ease-in-out"
             >
               SEARCH
             </button>
 
             {navMenuList.map((value, index) => (
-              <Link key={index} to={value.path}>
+              <Link key={index} to={value.path} className="w-full">
                 <div
-                  className={`w-[250px] h-[50px] px-3 py-3 text-white ${
+                  className={`w-full text-left h-[50px] px-5 py-3 text-black ${
                     value.path === location.pathname
-                      ? "bg-yellow-400 text-blue-600"
+                      ? "border-b-2 border-b-blue-600"
                       : "hover:bg-yellow-400 hover:text-blue-600"
                   } font-medium transition-colors duration-300 ease-in-out`}
                 >
@@ -147,11 +153,11 @@ const NavBarcomp = () => {
               </Link>
             ))}
 
-            <Link>
+            <Link to={"/cart"} className="w-full">
               <div
-                className={`w-[250px] h-[50px] px-3 py-3 text-white ${
+                className={`w-full h-[50px] px-5 py-3 text-black ${
                   "/cart" === location.pathname
-                    ? "bg-yellow-400 text-blue-600"
+                    ? "border-b-2 border-b-blue-600"
                     : "hover:bg-yellow-400 hover:text-blue-600"
                 } font-medium transition-colors duration-300 ease-in-out`}
               >
@@ -159,11 +165,11 @@ const NavBarcomp = () => {
               </div>
             </Link>
 
-            <Link to={"/likes"}>
+            <Link to={"/likes"} className="w-full">
               <div
-                className={`w-[250px] h-[50px] px-3 py-3 text-white ${
+                className={`w-full h-[50px] px-5 py-3 text-black ${
                   "/likes" === location.pathname
-                    ? "bg-yellow-400 text-blue-600"
+                    ? "border-b-2 border-b-blue-600"
                     : "hover:bg-yellow-400 hover:text-blue-600"
                 } font-medium transition-colors duration-300 ease-in-out`}
               >
@@ -171,9 +177,15 @@ const NavBarcomp = () => {
               </div>
             </Link>
 
-            <Link to={"/"}>
-              <div className="w-[250px] h-[50px] px-3 py-3 text-white font-medium flex items-center justify-start gap-3 hover:bg-yellow-400 hover:text-blue-600 transition-colors duration-300 ease-in-out">
-                <IoMdExit className="text-2xl" />
+            <Link to={"/"} className="w-full">
+              <div
+                className={`w-full h-[50px] px-5 py-3 text-black font-medium flex items-center justify-start gap-3 ${
+                  "/" === location.pathname
+                    ? ""
+                    : "hover:bg-yellow-400 hover:text-blue-600"
+                } transition-colors duration-300 ease-in-out`}
+              >
+                {/* <IoMdExit className="text-2xl" /> */}
                 LOGOUT
               </div>
             </Link>
@@ -186,4 +198,4 @@ const NavBarcomp = () => {
   );
 };
 
-export default NavBarcomp;  
+export default NavBarcomp;

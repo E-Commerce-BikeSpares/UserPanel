@@ -18,18 +18,18 @@ const AccessoriesSection = () => {
 
   return (
     <div className="w-full h-full 2xl:h-[500px] p-8 xl:h-[500px] lg:h-[800px] md:h-[1150px] sm:h-[1150px] flex flex-col items-center flex-wrap justify-center">
-      <h1 className="w-full h-fit py-5 text-left text-3xl font-bold text-blue-600">
+      <h1 className="w-full h-fit py-5 text-left text-3xl font-bold text-gray-600">
         Accessories
       </h1>
       <div className="w-full h-fit flex flex-row items-center flex-wrap justify-evenly gap-12">
         {data.map((value, index) => (
           <Fragment key={index}>
             <Link to={"/accessories"}>
-              <div className="max-sm:w-[300px] hover:scale-105 transition-transform duration-300 ease-in-out relative w-[450px] min-h-[300px] flex flex-col justify-center items-center group">
+              <div className="max-sm:w-[360px] hover:scale-105 transition-transform duration-300 ease-in-out relative w-[450px] min-h-[300px] flex flex-col justify-center items-center group">
                 <img
                   src={value.image}
                   alt={value.name}
-                  className="min-h-[300px] max-sm:w-[300px] max-sm:h-[200px] bg-gray-800 w-full rounded-lg absolute top-0 sm:max-2xl:right-0 sm:max-2xl:left-0 bottom-0 object-cover"
+                  className="min-h-[300px] max-sm:w-fit max-sm:h-[200px] bg-gray-800 w-full rounded-lg absolute top-0 sm:max-2xl:right-0 sm:max-2xl:left-0 bottom-0 object-cover"
                 />
 
                 <div className="min-w-[80px] top-4 left-4 py-4 flex flex-col items-center justify-evenly absolute bg-gradient-to-r from-blue-600 to-blue-500 outline-none rounded-xl text-white hover:scale-110 transition-transform duration-300 ease-in-out">

@@ -3,8 +3,8 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { GrCurrency } from "react-icons/gr";
 import { BiSupport } from "react-icons/bi";
 import { FaMapLocationDot } from "react-icons/fa6";
-import backgroundImage from "../../assets/car.jpg";
-import supportImage from "../../assets/car.jpg";
+import backgroundImage from "../../assets/HeroSection/Hero-Wheel.jpg";
+import supportImage from "../../assets/HomePage/Home-LiveTracking.jpg";
 
 const Data = [
   {
@@ -58,7 +58,7 @@ export const SupportDiscription = ({ value }) => {
   const { title, description } = value || {};
   return (
     <div className="w-full h-[100px] flex flex-col justify-start items-start px-6 gap-2 py-4">
-      <h2 className="font-bold text-4xl text-yellow-400 relative inline-block">
+      <h2 className="font-bold text-4xl max-sm:text-3xl max-sm:text-center text-yellow-400 relative inline-block">
         {title}
         <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-400 transform scale-x-0 origin-left transition-transform duration-500 group-hover:scale-x-100"></span>
       </h2>
@@ -71,7 +71,7 @@ const SupportHome = () => {
   return (
     <div className="w-full h-full flex mt-12 items-center justify-center">
       <div
-        className="w-[97%] min-h-[650px] rounded-2xl bg-cover bg-no-repeat relative overflow-hidden"
+        className="w-[97%] min-h-[650px] max-sm:w-full py-5 rounded-2xl bg-cover bg-no-repeat relative overflow-hidden"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <div className="absolute inset-0 bg-black/80 rounded-2xl"></div>
@@ -83,7 +83,7 @@ const SupportHome = () => {
             ))}
           </div>
 
-          <div className="min-h-[500px] w-full flex flex-col xl:flex-row 2xl:flex-row justify-around items-center gap-5">
+          <div className="min-h-[500px] w-full max-sm:mt-8 flex flex-col xl:flex-row 2xl:flex-row justify-around items-center gap-5">
             <div className="min-w-[50%] h-[80%] px-5 p-4 flex items-center justify-center">
               <img
                 className="w-full h-[500px] rounded-xl object-cover shadow-lg shadow-blue-900/50"

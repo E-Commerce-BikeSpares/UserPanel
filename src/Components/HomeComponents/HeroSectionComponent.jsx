@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import bike1 from "../../assets/car.jpg";
-import bike2 from "../../assets/car.jpg";
-import bike3 from "../../assets/car.jpg";
-import bike4 from "../../assets/car.jpg";
+import bike1 from "../../assets/HeroSection/Hero-Accessories.webp";
+import bike2 from "../../assets/HeroSection/Hero-Wheel.jpg";
+import bike3 from "../../assets/HeroSection/Hero-Head.jpg";
+import bike4 from "../../assets/HeroSection/Hero-Light.jpg";
 import { FaCog, FaTachometerAlt, FaTools, FaBolt } from "react-icons/fa"; 
 
 const slides = [

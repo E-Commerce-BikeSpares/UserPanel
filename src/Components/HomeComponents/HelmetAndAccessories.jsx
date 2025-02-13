@@ -1,11 +1,11 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import fullFaceHelmet from "../../assets/car.jpg";
-import halfFaceHelmet from "../../assets/car.jpg";
-import goggles from "../../assets/car.jpg";
-import helmetAccessories from "../../assets/car.jpg";
-import communication from "../../assets/car.jpg";
-import action from "../../assets/car.jpg";
+import fullFaceHelmet from "../../assets/HomePage/Helmet-FullFace.jpg";
+import halfFaceHelmet from "../../assets/HomePage/Helmet-HalfFace.jpg";
+import goggles from "../../assets/HomePage/Helmet-Goggle.jpg";
+import helmetAccessories from "../../assets/HomePage/Helmet-Accessories2.webp";
+import communication from "../../assets/HomePage/Hemlet-Communication.webp";
+import action from "../../assets/HomePage/Helmet-Action.jpg";
 
 const HelmetsAndAccessories = () => {
   const data = [

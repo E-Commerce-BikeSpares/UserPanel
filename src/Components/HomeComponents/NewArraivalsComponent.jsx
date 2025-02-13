@@ -1,11 +1,14 @@
 import React from "react";
 import ReuseableCard from "../ReusableComponents/CardComponent";
+import Dome from "../../assets/HeroSection/Hero-Head.jpg";
+import Engine from "../../assets/HomePage/Home-Register.jpg";
+import Brake from "../../assets/HeroSection/Hero-Wheel.jpg";
+import Chain from "../../assets/HeroSection/Hero-Head.jpg";
 
 const HomeCard = () => {
   const data = [
     {
-      image:
-        "https://imgd.aeplcdn.com/476x268/n/cw/ec/103795/yzf-r15-front-suspension-preload-adjuster.jpeg",
+      image: Dome,
       brand: "HERO",
       sparename: "DOME",
       discription:
@@ -15,8 +18,7 @@ const HomeCard = () => {
       path: "/prod-1",
     },
     {
-      image:
-        "https://www.carparts.com/blog/wp-content/uploads/2020/03/timing-chain-system-1024x683.jpeg",
+      image:Engine,
       brand: "HONDA",
       sparename: "ENGNEE",
       discription:
@@ -26,8 +28,7 @@ const HomeCard = () => {
       path: "/prod-2",
     },
     {
-      image:
-        "https://imgd.aeplcdn.com/476x268/n/cw/ec/103795/yzf-r15-rear-disc-brake.jpeg",
+      image:Brake,
       brand: "YAMAHA",
       sparename: "BRAKE SPARE",
       discription:
@@ -37,8 +38,7 @@ const HomeCard = () => {
       path: "/prod-3",
     },
     {
-      image:
-        "https://i.pinimg.com/originals/77/6e/38/776e389b1783f0af7cb1dd3f6dff1c78.jpg",
+      image:Chain,
       brand: "DUKE",
       sparename: "CHAINSPRAKET",
       discription:
@@ -54,7 +54,7 @@ const HomeCard = () => {
       <h2 className="text-3xl font-bold text-gray-600 text-left mb-6">
         New Arrivals
       </h2>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 max-sm:gap-4">
         {data.map((value, index) => (
           <ReuseableCard key={index} value={value} />
         ))}

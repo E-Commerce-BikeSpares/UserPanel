@@ -1,21 +1,18 @@
 import React from "react";
-import bikeRacingImage from "../../assets/car.jpg"; // Import the image
+import bikeRacingImage from "../../assets/HomePage/Home-Register.jpg";
 
 const HomeRegister = () => {
   return (
     <div className="w-full h-full flex-wrap flex justify-center items-center mt-20">
-      {/* Image Section */}
-      <div className="w-[750px] h-[500px]">
+      <div className="w-[750px] max-lg:w-full h-[500px]">
         <img
-          src={bikeRacingImage} // Use the imported image
+          src={bikeRacingImage}
           alt="Bike Racing"
-          className="w-[100%] h-[500px] rounded-l-2xl object-cover"
+          className="w-[100%] h-[500px] rounded-l-2xl max-md:rounded-none object-cover"
         />
       </div>
 
-      {/* Form Section */}
-      <div className="form-container w-[720px] min-h-[500px] flex flex-col justify-start items-center bg-gradient-to-r from-blue-950 via-blue-900 to-blue-800 rounded-r-2xl">
-        {/* Heading */}
+      <div className="form-container w-[720px] min-h-[500px] max-lg:w-full flex flex-col justify-start items-center bg-gradient-to-r from-blue-950 via-blue-900 to-blue-800 rounded-r-2xl max-md:rounded-none">
         <div className="heading py-3 px-4 flex justify-center items-center flex-col">
           <h2 className="font-bold text-2xl py-5 text-white">
             WANT TO BUY A SPARES ?
@@ -25,9 +22,7 @@ const HomeRegister = () => {
           </h3>
         </div>
 
-        {/* Form Fields */}
         <div className="w-full form-field relative flex flex-wrap md:flex-row flex-col justify-center items-center gap-14 py-7 text-white">
-          {/* Username Field */}
           <div className="relative w-[300px] md:w-[220px]">
             <input
               type="text"
@@ -43,7 +38,6 @@ const HomeRegister = () => {
             </label>
           </div>
 
-          {/* Mobile Number Field */}
           <div className="relative w-[300px] md:w-[220px]">
             <input
               type="text"
@@ -60,7 +54,6 @@ const HomeRegister = () => {
           </div>
         </div>
 
-        {/* Email Field */}
         <div className="email py-4 md:w-[502px] w-[300px] flex items-center justify-center">
           <div className="relative w-[300px] md:w-[500px]">
             <input
@@ -78,7 +71,6 @@ const HomeRegister = () => {
           </div>
         </div>
 
-        {/* Register Button */}
         <div className="btn w-[250px] h-[45px] mt-10 mb-8 md:mb-0 py-6 bg-yellow-400 text-black font-semibold text-lg flex justify-center items-center text-center rounded-3xl hover:scale-105 transform ease-in-out duration-500 cursor-pointer">
           <button>REGISTER NOW</button>
         </div>

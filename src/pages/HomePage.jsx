@@ -1,11 +1,10 @@
 import AccessoriesSection from "../Components/HomeComponents/AccessoriesComponent";
-import HomeCard from "../Components/HomeComponents/CardComponent";
 import HelmetsAndAccessories from "../Components/HomeComponents/HelmetAndAccessories";
 import HeroSection from "../Components/HomeComponents/HeroSectionComponent";
+import HomeCard from "../Components/HomeComponents/NewArraivalsComponent";
 import HomeRegister from "../Components/HomeComponents/RegisterComponent";
 import SearchByBike from "../Components/HomeComponents/SearchByBikeComponent";
 import SupportHome from "../Components/HomeComponents/SupportComponent";
-// import ReusableCard from "../Components/ReusableComponents/CardComponent";
 import FooterComp from "../Components/ReusableComponents/Footer";
 import NavBarcomp from "../Components/ReusableComponents/NavBar";
 
@@ -30,7 +29,7 @@ const Home = () => {
           <HelmetsAndAccessories/>
         </section>
         <section>
-          {/* <AccessoriesSection/> */}
+          <AccessoriesSection/>
         </section>
         <section>
           <SupportHome/>

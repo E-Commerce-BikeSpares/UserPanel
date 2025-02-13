@@ -80,7 +80,7 @@ const NavBarcomp = () => {
                     value.path === location.pathname
                       ? "border-b-2 border-b-blue-950 text-yellow-500"
                       : "text-black hover:text-yellow-500"
-                  } text-lg font-medium transition-colors duration-300 ease-in-out`}
+                  } text-base font-medium transition-colors duration-300 ease-in-out`}
                 >
                   {value.page}
                 </span>

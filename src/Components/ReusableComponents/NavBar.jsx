@@ -49,7 +49,7 @@ const NavBarcomp = () => {
             <img
               src={HeaderLogo}
               alt="logo"
-              className="w-[200px] h-fit max-sm:w-[130px] cursor-pointer"
+              className="w-[200px] h-fit max-sm:w-[150px] cursor-pointer"
             />
           </Link>
         </div>

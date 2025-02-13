@@ -19,7 +19,7 @@ const HelmetsAndAccessories = () => {
 
   return (
     <div className="w-full h-full flex flex-col items-start justify-center gap-6 p-8">
-      <h2 className="text-3xl font-bold text-gray-600">Helmet And Accessories</h2>
+      <h2 className="text-3xl max-sm:text-2xl font-bold text-gray-600">Helmet And Accessories</h2>
 
       <div className="w-full h-full flex flex-wrap items-center gap-4 justify-evenly">
         {data.map((values, index) => (

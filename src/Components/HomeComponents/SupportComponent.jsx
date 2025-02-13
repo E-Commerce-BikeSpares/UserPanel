@@ -83,7 +83,7 @@ const SupportHome = () => {
             ))}
           </div>
 
-          <div className="min-h-[500px] w-full max-sm:mt-8 flex flex-col xl:flex-row 2xl:flex-row justify-around items-center gap-5">
+          <div className="min-h-[500px] w-full max-sm:mt-9 flex flex-col xl:flex-row 2xl:flex-row justify-around items-center gap-5">
             <div className="min-w-[50%] h-[80%] px-5 p-4 flex items-center justify-center">
               <img
                 className="w-full h-[500px] rounded-xl object-cover shadow-lg shadow-blue-900/50"
